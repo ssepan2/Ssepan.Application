@@ -123,6 +123,10 @@
       <Project>{9efe2ec6-f48e-4e4e-927f-068b54210e09}</Project>
       <Name>Ssepan.Io</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ssepan.Utility\Ssepan.Utility\Ssepan.Utility.csproj">
+      <Project>{9c11d8dd-e335-4fe3-aae6-5c3b17732890}</Project>
+      <Name>Ssepan.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="License.txt">
