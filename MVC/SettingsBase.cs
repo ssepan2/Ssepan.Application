@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using Microsoft.Win32;//registry/file association
-using Ssepan.Application;
+//using Ssepan.Application;
 using Ssepan.Utility;
    
 namespace Ssepan.Application
