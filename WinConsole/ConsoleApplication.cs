@@ -473,16 +473,16 @@ namespace Ssepan.Application.WinConsole
             () => 
             { };
 
-        //wrapper for Invoke
-        public static Action wpfWrapperDoEventsDelegate = 
-            () => 
-            {
-                System.Windows.Application.Current.Dispatcher.Invoke
-                (
-                    System.Windows.Threading.DispatcherPriority.Background,
-                    new Action(delegate { })
-                );
-            };
+        ////wrapper for Invoke
+        //public static Action wpfWrapperDoEventsDelegate = 
+        //    () => 
+        //    {
+        //        System.Windows.Application.Current.Dispatcher.Invoke
+        //        (
+        //            System.Windows.Threading.DispatcherPriority.Background,
+        //            new Action(delegate { })
+        //        );
+        //    };
 
         //wrapper for DoEvents
         public static Action winFormsWrapperDoEventsDelegate = 

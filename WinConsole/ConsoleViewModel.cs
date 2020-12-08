@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Forms;
-using System.Windows.Controls;
+//using System.Windows.Controls;
 using System.Windows.Input;
 using Ssepan.Utility;
 using Ssepan.Application;
