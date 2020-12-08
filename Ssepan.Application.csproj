@@ -9,6 +9,7 @@
     <None Remove=".gitignore" />
     <None Remove="Dialogs\AboutDialog.xaml" />
     <None Remove="Dialogs\PropertyDialog.xaml" />
+    <None Remove="Resources\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Dialogs\AboutDialog.xaml" />
