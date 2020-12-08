@@ -5,27 +5,25 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Resources\**" />
-    <EmbeddedResource Remove="Resources\**" />
-    <None Remove="Resources\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Dialogs\AboutDialog.xaml.cs" />
-    <Compile Remove="Dialogs\PropertyDialog.xaml.cs" />
-    <Compile Remove="Dialogs\WpfPropertyGrid.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Remove=".gitattributes" />
     <None Remove=".gitignore" />
     <None Remove="Dialogs\AboutDialog.xaml" />
     <None Remove="Dialogs\PropertyDialog.xaml" />
+    <None Remove="Resources\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Dialogs\AboutDialog.xaml" />
+    <Page Include="Dialogs\PropertyDialog.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System.Activities.Presentation" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
     <ProjectReference Include="..\Ssepan.Utility\Ssepan.Utility\Ssepan.Utility.csproj">
     </ProjectReference>
     <ProjectReference Include="..\Ssepan.Io\Ssepan.Io.csproj">
