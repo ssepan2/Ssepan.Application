@@ -11,7 +11,6 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using Ssepan.Utility;
 using Ssepan.Application;
-using Ssepan.Application;
 using Ssepan.Io;
 
 namespace Ssepan.Application
