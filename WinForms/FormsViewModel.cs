@@ -9,10 +9,10 @@ using System.Text;
 using System.Windows.Forms;
 using Ssepan.Utility;
 using Ssepan.Application;
-using Ssepan.Application.WinForms;
+using Ssepan.Application;
 using Ssepan.Io;
 
-namespace Ssepan.Application.WinForms
+namespace Ssepan.Application
 {
     /// <summary>
     /// Note: this class can be subclassed without type parameters in the client.

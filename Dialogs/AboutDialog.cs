@@ -14,7 +14,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
 
-namespace Ssepan.Application.WinForms
+namespace Ssepan.Application
 {
 	public partial class AboutDialog : Form 
 	{

@@ -8,7 +8,7 @@ using Ssepan.Utility;
 using System.Diagnostics;
 using System.Reflection;
 
-namespace Ssepan.Application.WinForms
+namespace Ssepan.Application
 {
     public static class ClickOnce
     {

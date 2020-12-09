@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Ssepan.Application.WinForms
+namespace Ssepan.Application
 {
     public partial class PropertyDialog : Form
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
-using Ssepan.Application.WinForms;
+using Ssepan.Application;
 using Ssepan.Utility;
 
 namespace Ssepan.Application

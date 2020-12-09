@@ -11,10 +11,10 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using Ssepan.Utility;
 using Ssepan.Application;
-using Ssepan.Application.WinForms;
+using Ssepan.Application;
 using Ssepan.Io;
 
-namespace Ssepan.Application.WinConsole
+namespace Ssepan.Application
 {
     /// <summary>
     /// Note: this class can be subclassed without type parameters in the client.

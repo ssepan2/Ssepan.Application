@@ -5,7 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
-using Ssepan.Application.WinForms;
+using Ssepan.Application;
 using Ssepan.Utility;
 using Ssepan.Io;
 

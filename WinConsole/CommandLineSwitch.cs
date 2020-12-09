@@ -5,7 +5,7 @@ using System.Text;
 using System.Diagnostics;
 using System.Reflection;
 
-namespace Ssepan.Application.WinConsole
+namespace Ssepan.Application
 {
     public class CommandLineSwitch
     {

@@ -1,4 +1,4 @@
-namespace Ssepan.Application.WinForms
+namespace Ssepan.Application
 {
     partial class PropertyDialog
     {
