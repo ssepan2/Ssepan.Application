@@ -33,7 +33,26 @@ namespace Ssepan.Application
         public static TSettings Settings//TODO:notify here as well?
         {
             get { return _Settings; }
-            set { _Settings = value; }
+            set 
+            {
+                if (DefaultHandler != null)
+                {
+                    if (_Settings != null)
+                    {
+                        _Settings.PropertyChanged -= DefaultHandler;
+                    }
+                }
+
+                _Settings = value;
+
+                if (DefaultHandler != null)
+                {
+                    if (_Settings != null)
+                    {
+                        _Settings.PropertyChanged += DefaultHandler;
+                    }
+                }
+            }
         }
 
         private static String _OldPathname = default(String);
@@ -146,12 +165,31 @@ namespace Ssepan.Application
         
         private static PropertyChangedEventHandler _DefaultHandler = default(PropertyChangedEventHandler);
         /// <summary>
-        /// Handler to assigned to Settings on New, Open.
+        /// Handler to assigned to Settings; triggered on New, Open.
         /// </summary>
         public static PropertyChangedEventHandler DefaultHandler
         {
             get { return _DefaultHandler; }
-            set { _DefaultHandler = value; }
+            set 
+            {
+                if (DefaultHandler != null)
+                {
+                    if (Settings != null)
+                    {
+                        Settings.PropertyChanged -= DefaultHandler;
+                    }
+                }
+
+                _DefaultHandler = value;
+
+                if (DefaultHandler != null)
+                {
+                    if (Settings != null)
+                    {
+                        Settings.PropertyChanged += DefaultHandler;
+                    }
+                }
+            }
         }
         #endregion Properties
 
@@ -164,23 +202,11 @@ namespace Ssepan.Application
         {
             Boolean returnValue = default(Boolean);
             try
-            {
-                if (DefaultHandler != null)
-                {
-                    Settings.PropertyChanged -= DefaultHandler;
-                    Settings.UpdateHandlers();
-                }
-
+            {//DEBUG:why is settings controller calling new before defaulthandler is set?
                 //create new object
                 Settings = new TSettings();
                 Settings.Sync();
                 Filename = FILE_NEW;
-
-                if (DefaultHandler != null)
-                {
-                    Settings.PropertyChanged += DefaultHandler;
-                    Settings.UpdateHandlers();
-                }
 
                 returnValue = true;
             }
@@ -201,12 +227,6 @@ namespace Ssepan.Application
 
             try
             {
-                if (DefaultHandler != null)
-                {
-                    Settings.PropertyChanged -= DefaultHandler;
-                    Settings.UpdateHandlers();
-                }
-
                 //read from file
                 switch (SettingsBase.SerializeAs)
                 //switch (Settings.SerializeAs)
@@ -224,12 +244,6 @@ namespace Ssepan.Application
 
                             break;
                         }
-                }
-
-                if (DefaultHandler != null)
-                {
-                    Settings.PropertyChanged += DefaultHandler;
-                    Settings.UpdateHandlers();
                 }
 
                 returnValue = true;

@@ -68,7 +68,7 @@ namespace Ssepan.Application
             //this.EditCopyToClipboardCommand = new EditCopyToClipboardCommand(this);
             //this.EditPropertiesCommand = new EditPropertiesCommand(this);
             //this.HelpAboutCommand = new HelpAboutCommand(this);
-            //ActionIconWinformsImage = DSPS.Tools.ConversionLibrary.Properties.Resources.Save;
+            //ActionIconWinformsImage = 
             #endregion Commands
         }
 
@@ -89,7 +89,7 @@ namespace Ssepan.Application
 
                 _actionIconImages = actionIconImages;
 
-                ActionIconImage = _actionIconImages["Save"];//DSPS.Tools.ConversionLibrary.Properties.Resources.Save;
+                ActionIconImage = _actionIconImages["Save"];
 
                 //load user and application settings 
                 //Properties.Settings.Default.Reload();
@@ -117,7 +117,7 @@ namespace Ssepan.Application
                 (
                     "New...",
                     null,
-                    _actionIconImages["New"], //DSPS.Tools.ConversionLibrary.Properties.Resources.New,
+                    _actionIconImages["New"], 
                     true,
                     33
                 );
@@ -176,9 +176,9 @@ namespace Ssepan.Application
             {
                 StartProgressBar
                 (
-                    "Opening...",
+                    String.Format("Opening {0}...", SettingsController<TSettings>.FilePath),
                     null,
-                    _actionIconImages["Open"], //DSPS.Tools.ConversionLibrary.Properties.Resources.Open,
+                    _actionIconImages["Open"], 
                     true,
                     33
                 );
@@ -245,9 +245,9 @@ namespace Ssepan.Application
             {
                 StartProgressBar
                 (
-                    "Saving...",
+                    String.Format("Saving {0}...", SettingsController<TSettings>.FilePath),
                     null,
-                    _actionIconImages["Save"], //DSPS.Tools.ConversionLibrary.Properties.Resources.Save,
+                    _actionIconImages["Save"], 
                     true,
                     33
                 );
@@ -291,7 +291,7 @@ namespace Ssepan.Application
                 (
                     "Saving As...",
                     null,
-                    _actionIconImages["Save"], //DSPS.Tools.ConversionLibrary.Properties.Resources.Save, 
+                    _actionIconImages["Save"], 
                     true,
                     33
                 );
@@ -335,7 +335,7 @@ namespace Ssepan.Application
                 (
                     "Printing...",
                     null,
-                    _actionIconImages["Print"], //DSPS.Tools.ConversionLibrary.Properties.Resources.Print,
+                    _actionIconImages["Print"], 
                     true,
                     33
                 );
@@ -391,7 +391,7 @@ namespace Ssepan.Application
                 (
                     "Copying...",
                     null,
-                    _actionIconImages["Copy"], //DSPS.Tools.ConversionLibrary.Properties.Resources.Copy,
+                    _actionIconImages["Copy"], 
                     true,
                     33
                 );
@@ -419,7 +419,7 @@ namespace Ssepan.Application
                 (
                     "Edit Properties...",
                     null,
-                    _actionIconImages["Properties"], //DSPS.Tools.ConversionLibrary.Properties.Resources.Properties,
+                    _actionIconImages["Properties"], 
                     true,
                     33
                 );

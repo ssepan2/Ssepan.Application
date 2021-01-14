@@ -72,7 +72,7 @@ namespace Ssepan.Application
             //this.EditCopyToClipboardCommand = new EditCopyToClipboardCommand(this);
             //this.EditPropertiesCommand = new EditPropertiesCommand(this);
             //this.HelpAboutCommand = new HelpAboutCommand(this);
-            //ActionIconWinformsImage = DSPS.Tools.ConversionLibrary.Properties.Resources.Save;
+            //ActionIconWinformsImage = 
             #endregion Commands
         }
 

@@ -8,9 +8,8 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using Microsoft.Win32;//registry/file association
-using Ssepan.Application;
 using Ssepan.Utility;
-   
+
 namespace Ssepan.Application
 {
 	/// <summary>
@@ -218,11 +217,6 @@ namespace Ssepan.Application
                 throw;
             }
         }
-
-        /// <summary>
-        /// Update child components (used as properties) to use the passed handler.
-        /// </summary>
-        public virtual void UpdateHandlers() { }
         #endregion Methods
 
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -34,7 +35,55 @@ namespace Ssepan.Application
         public static TModel Model
         {
             get { return _Model; }
-            set { _Model = value; }//TODO:notify here as well?
+            set 
+            {
+                if (DefaultHandler != null)
+                {
+                    if (Model != null)
+                    {
+                        Model.PropertyChanged -= DefaultHandler;
+                    }
+                }
+
+                _Model = value;
+
+                if (DefaultHandler != null)
+                {
+                    if (Model != null)
+                    {
+                        Model.PropertyChanged += DefaultHandler;
+                    }
+                }
+            }
+        }
+
+        private static PropertyChangedEventHandler _DefaultHandler = default(PropertyChangedEventHandler);
+        /// <summary>
+        /// Handler to assigned to Settings on New, Open.
+        /// </summary>
+        public static PropertyChangedEventHandler DefaultHandler
+        {
+            get { return _DefaultHandler; }
+            set 
+            {
+                if (DefaultHandler != null)
+                {
+                    if (Model != null)
+                    {
+                        Model.PropertyChanged -= DefaultHandler;
+                    }
+                }
+
+                _DefaultHandler = value;
+
+                if (DefaultHandler != null)
+                {
+                    if (Model != null)
+                    {
+                        Model.PropertyChanged += DefaultHandler;
+                    }
+                }
+            }
         }
         #endregion Properties
 

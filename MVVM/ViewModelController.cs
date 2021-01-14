@@ -43,7 +43,7 @@ namespace Ssepan.Application
 
         #region Methods
         /// <summary>
-        /// New settings
+        /// add new viewmodel to dictionary
         /// </summary>
         /// <param name="viewName"></param>
         /// <param name="viewModel"></param>
