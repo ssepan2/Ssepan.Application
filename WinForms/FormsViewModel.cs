@@ -135,7 +135,7 @@ namespace Ssepan.Application
 
         #region Methods
         #region Menus
-        public void FileNew()
+        public virtual void FileNew()
         {
             StatusMessage = String.Empty;
             ErrorMessage = String.Empty;
@@ -193,7 +193,7 @@ namespace Ssepan.Application
         /// Open object at SettingsController<TSettings>.FilePath.
         /// </summary>
         /// <param name="forceDialog">If false, just use SettingsController<TSettings>.FilePath</param>
-        public void FileOpen(Boolean forceDialog = true)
+        public virtual void FileOpen(Boolean forceDialog = true)
         {
             StatusMessage = String.Empty;
             ErrorMessage = String.Empty;
@@ -266,7 +266,7 @@ namespace Ssepan.Application
             }
         }
 
-        public void FileSave()
+        public virtual void FileSave()
         {
             StatusMessage = String.Empty;
             ErrorMessage = String.Empty;
@@ -310,7 +310,7 @@ namespace Ssepan.Application
             }
         }
 
-        public void FileSaveAs()
+        public virtual void FileSaveAs()
         {
             StatusMessage = String.Empty;
             ErrorMessage = String.Empty;
@@ -354,7 +354,7 @@ namespace Ssepan.Application
             }
         }
 
-        public void FilePrint()
+        public virtual void FilePrint()
         {
             StatusMessage = String.Empty;
             ErrorMessage = String.Empty;
@@ -387,7 +387,7 @@ namespace Ssepan.Application
             }
         }
 
-        public void FileExit()
+        public virtual void FileExit()
         {
             StatusMessage = String.Empty;
             ErrorMessage = String.Empty;
@@ -410,7 +410,119 @@ namespace Ssepan.Application
             }
         }
 
-        public void EditCopy()
+        public virtual void EditUndo()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Undoing...",
+                    null,
+                    _actionIconImages["Undo"],
+                    true,
+                    33
+                );
+
+                //Undo();
+
+                StopProgressBar("Undo completed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Undo failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void EditRedo()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Redoing...",
+                    null,
+                    _actionIconImages["Redo"],
+                    true,
+                    33
+                );
+
+                //Redo();
+
+                StopProgressBar("Redo completed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Redo failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void EditSelectAll()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Selecting All...",
+                    null,
+                    null,//_actionIconImages["SelectAll"],
+                    true,
+                    33
+                );
+
+                //Select All();
+
+                StopProgressBar("Select All completed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Select All failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void EditCut()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Cutting...",
+                    null,
+                    _actionIconImages["Cut"],
+                    true,
+                    33
+                );
+
+                //Cut();
+
+                StopProgressBar("Cut completed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Cut failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void EditCopy()
         {
             StatusMessage = String.Empty;
             ErrorMessage = String.Empty;
@@ -421,13 +533,13 @@ namespace Ssepan.Application
                 (
                     "Copying...",
                     null,
-                    _actionIconImages["Copy"], 
+                    _actionIconImages["Copy"],
                     true,
                     33
                 );
 
                 //Copy();
-                
+
                 StopProgressBar("Copied.");
             }
             catch (Exception ex)
@@ -438,7 +550,175 @@ namespace Ssepan.Application
             }
         }
 
-        public void EditProperties()
+        public virtual void EditPaste()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Pasting...",
+                    null,
+                    _actionIconImages["Paste"],
+                    true,
+                    33
+                );
+
+                //Paste();
+
+                StopProgressBar("Pasted.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Paste failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void EditDelete()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Deleting...",
+                    null,
+                    _actionIconImages["Delete"],
+                    true,
+                    33
+                );
+
+                //Delete();
+
+                StopProgressBar("Deleted.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Delete failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void EditFind()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Finding...",
+                    null,
+                    _actionIconImages["Find"],
+                    true,
+                    33
+                );
+
+                //Find();
+
+                StopProgressBar("Find completed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Find failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void EditReplace()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Replacing...",
+                    null,
+                    _actionIconImages["Replace"],
+                    true,
+                    33
+                );
+
+                //Replace();
+
+                StopProgressBar("Replace completed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Replace failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void EditRefresh()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Refreshing...",
+                    null,
+                    _actionIconImages["Refresh"],
+                    true,
+                    33
+                );
+
+                //Refresh();
+
+                StopProgressBar("Refreshed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Refresh failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void EditPreferences()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Preferences...",
+                    null,
+                    _actionIconImages["Preferences"],
+                    true,
+                    33
+                );
+
+                //Preferences();
+
+                StopProgressBar("Preferences completed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Preferences failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void EditProperties()
         {
             StatusMessage = String.Empty;
             ErrorMessage = String.Empty;
@@ -449,7 +729,7 @@ namespace Ssepan.Application
                 (
                     "Edit Properties...",
                     null,
-                    _actionIconImages["Properties"], 
+                    _actionIconImages["Properties"],
                     true,
                     33
                 );
@@ -458,7 +738,7 @@ namespace Ssepan.Application
                 PropertyDialog pv = new PropertyDialog(ModelController<TModel>.Model/*SettingsController<TSettings>.Settings*/, ModelController<TModel>.Model.Refresh);
                 pv.Owner = System.Windows.Forms.Application.OpenForms[0];//App.Current.MainWindow;
                 pv.ShowDialog();
-                
+
                 StopProgressBar("Edit Properties closed.");
             }
             catch (Exception ex)
@@ -469,7 +749,147 @@ namespace Ssepan.Application
             }
         }
 
-        public void HelpAbout<TAssemblyInfo>()
+        public virtual void HelpContents()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Help Contents...",
+                    null,
+                    null,//_actionIconImages["Help Contents"],
+                    true,
+                    33
+                );
+
+                //Help Contents();
+
+                StopProgressBar("Help Contents completed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Help Contents failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void HelpIndex()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Help Index...",
+                    null,
+                    null,//_actionIconImages["Help Index"],
+                    true,
+                    33
+                );
+
+                //Help Index();
+
+                StopProgressBar("Help Index completed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Help Index failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void HelpOnlineHelp()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Help On Help...",
+                    null,
+                    null,//_actionIconImages["Help On Help"],
+                    true,
+                    33
+                );
+
+                //Help On Help();
+
+                StopProgressBar("Help On Help completed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Help On Help failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void HelpLicenceInformation()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Licence Information...",
+                    null,
+                    null,//_actionIconImages["Licence Information"],
+                    true,
+                    33
+                );
+
+                //Licence Information();
+
+                StopProgressBar("Licence Information completed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Licence Information failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void HelpCheckForUpdates()
+        {
+            StatusMessage = String.Empty;
+            ErrorMessage = String.Empty;
+
+            try
+            {
+                StartProgressBar
+                (
+                    "Check For Updates...",
+                    null,
+                    null,//_actionIconImages["Check For Updates"],
+                    true,
+                    33
+                );
+
+                //Check For Updates();
+
+                StopProgressBar("Check For Updates completed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                StopProgressBar(null, String.Format("Check For Updates failed: {0}", ex.Message));
+            }
+        }
+
+        public virtual void HelpAbout<TAssemblyInfo>()
             where TAssemblyInfo :
             //class,
             AssemblyInfoBase,
@@ -498,7 +918,7 @@ namespace Ssepan.Application
             }
         }
 
-        private Boolean Print()
+        protected virtual Boolean Print()
         {
             Boolean returnValue = default(Boolean);
             System.Windows.Forms.PrintDialog printDialog = new System.Windows.Forms.PrintDialog();
@@ -507,7 +927,7 @@ namespace Ssepan.Application
             if (dialogResult.HasValue && dialogResult.Value)
             {
                 try
-                {
+                {//TODO:some part of this process needs to be 'protected virtual' and overridden?
                     //printDialog.PrintVisual(/*_view.ChartControl*/, "app_name");
                     returnValue = true;
                 }
