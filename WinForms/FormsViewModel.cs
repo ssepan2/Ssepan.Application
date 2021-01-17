@@ -135,6 +135,9 @@ namespace Ssepan.Application
 
         #region Methods
         #region Menus
+        #region menu feature boilerplate
+        //may be used as-is, or overridden to handle differently
+
         public virtual void FileNew()
         {
             StatusMessage = String.Empty;
@@ -426,7 +429,10 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Undo();
+                if (!Undo())
+                {
+                    throw new ApplicationException("'Undo' error");
+                }
 
                 StopProgressBar("Undo completed.");
             }
@@ -454,7 +460,10 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Redo();
+                if (!Redo())
+                {
+                    throw new ApplicationException("'Redo' error");
+                }
 
                 StopProgressBar("Redo completed.");
             }
@@ -482,7 +491,10 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Select All();
+                if (!SelectAll())
+                {
+                    throw new ApplicationException("'Select All' error");
+                }
 
                 StopProgressBar("Select All completed.");
             }
@@ -510,7 +522,10 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Cut();
+                if (!Cut())
+                {
+                    throw new ApplicationException("'Cut' error");
+                }
 
                 StopProgressBar("Cut completed.");
             }
@@ -538,7 +553,10 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Copy();
+                if (!Copy())
+                {
+                    throw new ApplicationException("'Copy' error");
+                }
 
                 StopProgressBar("Copied.");
             }
@@ -566,7 +584,10 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Paste();
+                if (!Paste())
+                {
+                    throw new ApplicationException("'Paste' error");
+                }
 
                 StopProgressBar("Pasted.");
             }
@@ -594,7 +615,10 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Delete();
+                if (!Delete())
+                {
+                    throw new ApplicationException("'Delete' error");
+                }
 
                 StopProgressBar("Deleted.");
             }
@@ -622,7 +646,10 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Find();
+                if (!Find())
+                {
+                    throw new ApplicationException("'Find' error");
+                }
 
                 StopProgressBar("Find completed.");
             }
@@ -650,7 +677,10 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Replace();
+                if (!Replace())
+                {
+                    throw new ApplicationException("'Replace' error");
+                }
 
                 StopProgressBar("Replace completed.");
             }
@@ -678,7 +708,10 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Refresh();
+                if (!Refresh())
+                {
+                    throw new ApplicationException("'Refresh' error");
+                }
 
                 StopProgressBar("Refreshed.");
             }
@@ -706,7 +739,10 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Preferences();
+                if (!Preferences())
+                {
+                    throw new ApplicationException("'Preferences' error");
+                }
 
                 StopProgressBar("Preferences completed.");
             }
@@ -764,8 +800,11 @@ namespace Ssepan.Application
                     true,
                     33
                 );
-
-                //Help Contents();
+                //System.Windows.Forms.Help
+                if (!Contents())
+                {
+                    throw new ApplicationException("'Help Contents' error");
+                }
 
                 StopProgressBar("Help Contents completed.");
             }
@@ -792,8 +831,11 @@ namespace Ssepan.Application
                     true,
                     33
                 );
-
-                //Help Index();
+                //System.Windows.Forms.Help
+                if (!Index())
+                {
+                    throw new ApplicationException("'Help Index' error");
+                }
 
                 StopProgressBar("Help Index completed.");
             }
@@ -805,7 +847,7 @@ namespace Ssepan.Application
             }
         }
 
-        public virtual void HelpOnlineHelp()
+        public virtual void HelpOnHelp()
         {
             StatusMessage = String.Empty;
             ErrorMessage = String.Empty;
@@ -821,7 +863,11 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Help On Help();
+                //System.Windows.Forms.Help
+                if (!OnHelp())
+                {
+                    throw new ApplicationException("'Help On Help' error");
+                }
 
                 StopProgressBar("Help On Help completed.");
             }
@@ -849,7 +895,10 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Licence Information();
+                if (!LicenceInformation())
+                {
+                    throw new ApplicationException("'Licence Information' error");
+                }
 
                 StopProgressBar("Licence Information completed.");
             }
@@ -877,7 +926,10 @@ namespace Ssepan.Application
                     33
                 );
 
-                //Check For Updates();
+                if (!CheckForUpdates())
+                {
+                    throw new ApplicationException("'Check For Updates' error");
+                }
 
                 StopProgressBar("Check For Updates completed.");
             }
@@ -917,7 +969,16 @@ namespace Ssepan.Application
                 StopProgressBar(null, String.Format("{0}", ex.Message));
             }
         }
+        #endregion menu feature boilerplate
 
+        #region menu feature implementation
+        //likely to need overridden to handle feature specifics
+
+        /// <summary>
+        /// placeholder and example, but this must be overridden to actually do anything
+        /// with the print dialog, such as sendign a document to the printer
+        /// </summary>
+        /// <returns>Boolean</returns>
         protected virtual Boolean Print()
         {
             Boolean returnValue = default(Boolean);
@@ -941,6 +1002,311 @@ namespace Ssepan.Application
 
             return returnValue;
         }
+
+        protected virtual Boolean Undo()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean Redo()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean SelectAll()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean Cut()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean Copy()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean Paste()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean Delete()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean Find()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean Replace()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean Refresh()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean Preferences()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean Contents()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean Index()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean OnHelp()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean LicenceInformation()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+
+        protected virtual Boolean CheckForUpdates()
+        {
+            Boolean returnValue = default(Boolean);
+
+            try
+            {
+                //TODO:some part of this process may need to overridden
+                returnValue = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex, MethodBase.GetCurrentMethod(), EventLogEntryType.Error);
+
+                throw ex;
+            }
+
+            return returnValue;
+        }
+        #endregion menu feature implementation
 
         #endregion Menus
 
