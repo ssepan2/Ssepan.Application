@@ -63,15 +63,6 @@ namespace Ssepan.Application
             }
 
             #region Commands
-            //this.FileNewCommand = new FileNewCommand(this);
-            //this.FileOpenCommand = new FileOpenCommand(this);
-            //this.FileSaveCommand = new FileSaveCommand(this);
-            //this.FileSaveAsCommand = new FileSaveAsCommand(this);
-            //this.FilePrintCommand = new FilePrintCommand(this);
-            //this.FileExitCommand = new FileExitCommand(this);
-            //this.EditCopyToClipboardCommand = new EditCopyToClipboardCommand(this);
-            //this.EditPropertiesCommand = new EditPropertiesCommand(this);
-            //this.HelpAboutCommand = new HelpAboutCommand(this);
             //ActionIconWinformsImage = 
             #endregion Commands
         }
@@ -796,7 +787,7 @@ namespace Ssepan.Application
                 (
                     "Help Contents...",
                     null,
-                    null,//_actionIconImages["Help Contents"],
+                    _actionIconImages["Contents"],
                     true,
                     33
                 );
@@ -827,7 +818,7 @@ namespace Ssepan.Application
                 (
                     "Help Index...",
                     null,
-                    null,//_actionIconImages["Help Index"],
+                    null,//_actionIconImages["Index"],
                     true,
                     33
                 );
@@ -952,7 +943,7 @@ namespace Ssepan.Application
 
             try
             {
-                StartProgressBar("About...", null, (TIcon)null, true, 33);
+                StartProgressBar("About...", null, _actionIconImages["About"], true, 33);
 
                 // Open the About form in Dialog Mode
                 AboutDialog frm = new AboutDialog(new TAssemblyInfo());
