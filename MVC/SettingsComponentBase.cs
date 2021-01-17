@@ -12,10 +12,10 @@ using Ssepan.Utility;
 
 namespace Ssepan.Application
 {
-	/// <summary>
-	/// Base for component of Settings which are persisted.
-	/// </summary>
-    [DataContract]
+    /// <summary>
+    /// Base for component of Settings which are persisted.
+    /// </summary>
+    [DataContract(IsReference = true)]
     [Serializable]
     public abstract class SettingsComponentBase : 
         ISettingsComponent
