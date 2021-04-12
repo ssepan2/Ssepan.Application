@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace Ssepan.Application
+namespace Ssepan.Application.WinForms
 {
 
     #region " Helper class to get information for the About form. "

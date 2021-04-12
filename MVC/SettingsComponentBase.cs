@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 using Microsoft.Win32;//registry/file association
 using Ssepan.Utility;
 
-namespace Ssepan.Application
+namespace Ssepan.Application.MVC
 {
     /// <summary>
     /// Base for component of Settings which are persisted.

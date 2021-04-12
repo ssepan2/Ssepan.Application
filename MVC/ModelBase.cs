@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Reflection;
 using Ssepan.Utility;
 
-namespace Ssepan.Application
+namespace Ssepan.Application.MVC
 {
     /// <summary>
     /// Base for run-time Model. Use this to represent the top-most object in the model heirarchy

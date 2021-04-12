@@ -9,7 +9,7 @@ using Ssepan.Application;
 using Ssepan.Utility;
 using Ssepan.Io;
 
-namespace Ssepan.Application
+namespace Ssepan.Application.MVC
 {
     /// <summary>
     /// Manager for the persisted Settings. 

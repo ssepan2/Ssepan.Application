@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Reflection;
 using Ssepan.Utility;
 
-namespace Ssepan.Application
+namespace Ssepan.Application.MVC
 {
     /// <summary>
     /// Base type for components of run-time Model.

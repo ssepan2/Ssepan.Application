@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Ssepan.Application;
 using Ssepan.Utility;
 
-namespace Ssepan.Application
+namespace Ssepan.Application.MVC
 {
     /// <summary>
     /// Manager for the run-time model. 
