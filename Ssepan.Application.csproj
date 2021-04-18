@@ -95,7 +95,7 @@
       <DependentUpon>SelectDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\WpfPropertyGrid.cs" />
-    <Compile Include="FormsApplication.cs" />
+    <Compile Include="WinForms\FormsApplication.cs" />
     <Compile Include="Interfaces\IModel.cs" />
     <Compile Include="Interfaces\IModelComponent.cs" />
     <Compile Include="Interfaces\ISettings.cs" />
